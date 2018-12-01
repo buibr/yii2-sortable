@@ -1,6 +1,11 @@
 Change Log: `yii2-sortable`
 ===========================
 
+## Version 1.2.3
+
+- Add suport from ArrayHelper::map(object, key, val)
+- Add hidden input with `key` of array for hard post submit.
+
 ## Version 1.2.2
 
 **Date:** 09-Oct-2018

@@ -10,6 +10,11 @@
             "name": "Kartik Visweswaran",
             "email": "kartikv2@gmail.com",
             "homepage": "http://www.krajee.com/"
+        },
+        {
+            "name": "Burhan Ibrahimi",
+            "email": "burhan@wflux.pro",
+            "homepage": "http://www.wflux.pro/"
         }
     ],
     "require": {
@@ -17,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "kartik\\sortable\\": "src"
+            "buibr\\sortable\\": "src"
         }
     },
     "extra": {
