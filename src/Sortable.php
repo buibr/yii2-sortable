@@ -8,10 +8,10 @@
 
 namespace buibr\sortable;
 
-use kartik\base\Widget;
-use yii\base\InvalidConfigException;
 use yii\helpers\Html;
+use kartik\base\Widget;
 use yii\helpers\ArrayHelper;
+use yii\base\InvalidConfigException;
 
 /**
  * Create sortable lists and grids using HTML5 drag and drop API for Yii 2.0.
@@ -82,6 +82,10 @@ class Sortable extends Widget
      */
     public $items = [];
 
+
+
+    public $inputName= 'item-';
+
     /**
      * Initializes the widget
      * @throws InvalidConfigException
@@ -146,13 +150,26 @@ class Sortable extends Widget
     {
         $items = '';
         $handle = ($this->showHandle) ? Html::tag('span', $this->handleLabel, ['class' => 'handle']) : '';
-        foreach ($this->items as $item) {
+        foreach ($this->items as $key=>$item) 
+        {
             $options = ArrayHelper::getValue($item, 'options', []);
             $options = ArrayHelper::merge($this->itemOptions, $options);
             if (ArrayHelper::getValue($item, 'disabled', false)) {
                 Html::addCssClass($options, 'disabled');
             }
-            $content = $handle . ArrayHelper::getValue($item, 'content', '');
+
+            $content = trim($item);
+            
+            if(\is_array($item)):
+                $content = ArrayHelper::getValue($item, 'content', null);
+            endif;
+
+            if( empty($content) ) { 
+                $content = $content . $item;
+                $content = $content . " <input type='hidden' name='{$this->inputName}[]' value='{$key}' /> ";
+            }
+            
+            $content = $handle ." ". $content;
             $items .= Html::tag('li', $content, $options) . PHP_EOL;
         }
         return $items;
