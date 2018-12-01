@@ -67,6 +67,8 @@ echo Sortable::widget([
 ]); 
 ```
 
+
+
 ## License
 
 **yii2-sortable** is released under the BSD-3-Clause License. See the bundled `LICENSE.md` for details.
