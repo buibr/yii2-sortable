@@ -6,7 +6,7 @@
  * @version 1.2.2
  */
 
-namespace kartik\sortable;
+namespace buibr\sortable;
 
 use kartik\base\AssetBundle;
 /**
